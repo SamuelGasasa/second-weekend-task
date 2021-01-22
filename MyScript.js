@@ -56,4 +56,5 @@ topic: JavaScript},{
     tasksGiven: 25,
     tasksFinished: 5,
     topic: 'Functions'
-}]
+}];
+
