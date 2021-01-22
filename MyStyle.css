@@ -15,4 +15,23 @@
 }
 .lowPercent {
   background-color: lightblue;
+  color: black;
+}
+table {
+  text-align: center;
+}
+td {
+  padding-left: 20px;
+  border-radius: 10%;
+  border-style: solid;
+  background-color: gray;
+  color: white;
+  border-color: black;
+}
+th {
+  border-radius: 10%;
+  border-style: solid;
+  background-color: gray;
+  color: white;
+  border-color: black;
 }

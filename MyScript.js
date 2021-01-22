@@ -77,7 +77,7 @@ for(let student of students){
 }
 // test
 let prop=Object.getOwnPropertyNames(students[0]);
-console.log(students[0][prop[6]]===38);
+console.log(new Date("2021-01-20:13:30").getHours());
 // let news=prop[0];
 // console.log(students[0][prop[0]]);
 // for(let i=0;i<students.length;i++){
