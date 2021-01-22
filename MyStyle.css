@@ -1,0 +1,18 @@
+.littleTime {
+  background-color: green;
+}
+.midTime {
+  background-color: orange;
+}
+.longTime {
+  background-color: red;
+}
+.highPercent {
+  background-color: darkblue;
+}
+.midPercent {
+  background-color: blue;
+}
+lowPercent {
+  background-color: lightblue;
+}

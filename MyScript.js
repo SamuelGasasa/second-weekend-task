@@ -95,20 +95,20 @@ document.write('<table>');
     for(let i=0;i<propName.length;i++){
         document.write('<th>' + propName[i] + '</th>' );
     }
-    document.write('</tr>');
-    for(let i=0;i<students.length;i++){
-        document.write('<tr>');
-        for(let j=0;j<7;j++){
-            document.write('<td>' + students[i][propName[j]] + '</td>');
-        }
-        document.write('</tr>');
-    }
-    // for(let student of students){
+    // document.write('</tr>');
+    // for(let i=0;i<students.length;i++){
     //     document.write('<tr>');
-    //     for(let i=0;i<propName.length;i++){
-    //         document.write('<td> b'+student.propName[i] + '</td>');
+    //     for(let j=0;j<7;j++){
+    //         document.write('<td>' + students[i][propName[j]] + '</td>');
     //     }
     //     document.write('</tr>');
     // }
+    for(let student of students){
+        document.write('<tr>');
+        for(let i=0;i<propName.length;i++){
+            document.write('<td> '+student[propName[i]] + '</td>');
+        }
+        document.write('</tr>');
+    }
 
 document.write('</table>');
