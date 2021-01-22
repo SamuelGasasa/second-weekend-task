@@ -68,11 +68,47 @@ topic: 'MoreHTML'
     tasksFinished: 5,
     topic: 'Functions'
 }]
-
+// set new properties and put values
 for(let student of students){
     let totalTime= student.finishedAt.getHours()-student.startedAt.getHours() ;
     let tasksFinishedPercents=Math.floor((student.tasksFinished/student.tasksGiven)*100);
     student.totalTime=totalTime;
-    student.tasksFinishedPercents=tasksFinishedPercents;
+    student.tasksFinishedPercents=tasksFinishedPercents+'%';
 }
-console.log(students[0].tasksFinishedPercents);
+// test
+let prop=Object.getOwnPropertyNames(students[0]);
+console.log(students[0][prop[0]])
+// let news=prop[0];
+// console.log(students[0][prop[0]]);
+// for(let i=0;i<students.length;i++){
+//     console.log(students.length)
+//     for(let j=0;j<7;j++){
+//         console.log(students[i][prop[j]]);
+//     }
+
+// }
+// end test
+document.write('<table>');
+// create the head of the table
+    document.write('<tr>');
+    let propName=Object.getOwnPropertyNames(students[0]);
+    for(let i=0;i<propName.length;i++){
+        document.write('<th>' + propName[i] + '</th>' );
+    }
+    document.write('</tr>');
+    for(let i=0;i<students.length;i++){
+        document.write('<tr>');
+        for(let j=0;j<7;j++){
+            document.write('<td>' + students[i][propName[j]] + '</td>');
+        }
+        document.write('</tr>');
+    }
+    // for(let student of students){
+    //     document.write('<tr>');
+    //     for(let i=0;i<propName.length;i++){
+    //         document.write('<td> b'+student.propName[i] + '</td>');
+    //     }
+    //     document.write('</tr>');
+    // }
+
+document.write('</table>');
