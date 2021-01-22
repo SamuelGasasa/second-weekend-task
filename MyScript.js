@@ -71,7 +71,8 @@ topic: 'MoreHTML'
 
 for(let student of students){
     let totalTime= student.finishedAt.getHours()-student.startedAt.getHours() ;
-    let tasksFinishedPrecent=Math.floor(student.);
+    let tasksFinishedPercents=Math.floor((student.tasksFinished/student.tasksGiven)*100);
     student.totalTime=totalTime;
-    // console.log(totalTime);
+    student.tasksFinishedPercents=tasksFinishedPercents;
 }
+console.log(students[0].tasksFinishedPercents);
