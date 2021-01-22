@@ -73,11 +73,11 @@ for(let student of students){
     let totalTime= student.finishedAt.getHours()-student.startedAt.getHours() ;
     let tasksFinishedPercents=Math.floor((student.tasksFinished/student.tasksGiven)*100);
     student.totalTime=totalTime;
-    student.tasksFinishedPercents=tasksFinishedPercents+'%';
+    student.tasksFinishedPercents=tasksFinishedPercents;
 }
 // test
 let prop=Object.getOwnPropertyNames(students[0]);
-console.log(students[0][prop[0]])
+console.log(students[0][prop[6]]===38);
 // let news=prop[0];
 // console.log(students[0][prop[0]]);
 // for(let i=0;i<students.length;i++){
@@ -106,6 +106,38 @@ document.write('<table>');
     for(let student of students){
         document.write('<tr>');
         for(let i=0;i<propName.length;i++){
+            if(propName[i]==='totalTime'){
+                if(student[propName[i]]>7){
+                    document.write('<td class=longTime> '+student[propName[i]] + '</td>');
+                    continue;
+                }
+                else{
+                    if(student[propName[i]]>4){
+                        document.write('<td class=midTime> '+student[propName[i]] + '</td>');
+                        continue;
+                    }
+                    else{
+                        document.write('<td class=littleTime> '+student[propName[i]] + '</td>');
+                        continue;
+                    }
+                }
+            }
+            if(propName[i] ==='tasksFinishedPercents'){
+                if(student[propName[i]]>=80){
+                    document.write('<td class=highPercent> '+student[propName[i]] + '% </td>');
+                    continue;
+                }
+                else{
+                    if(student[propName[i]]>55){
+                        document.write('<td class=midPercent> '+student[propName[i]] + '% </td>');
+                        continue;
+                    }
+                    else{
+                        document.write('<td class=lowPercent> '+student[propName[i]] + '% </td>');
+                        continue;
+                    }
+                }
+            }
             document.write('<td> '+student[propName[i]] + '</td>');
         }
         document.write('</tr>');
