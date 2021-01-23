@@ -14,14 +14,13 @@
   background-color: blue;
 }
 .lowPercent {
-  background-color: lightblue;
+  background-color: lightb;
   color: black;
 }
 table {
   text-align: center;
 }
 td {
-  padding-left: 20px;
   border-radius: 10%;
   border-style: solid;
   background-color: #262626;
