@@ -75,50 +75,59 @@ for(let student of students){
     student.totalTime=totalTime;
     student.tasksFinishedPercents=tasksFinishedPercents;
 }
-document.write('<table>');
-    document.write('<tr>');
-    let propName=Object.getOwnPropertyNames(students[0]);
+const body=document.body;
+const table=document.createElement('table');
+body.append(table);
+const tr=document.createElement('tr');
+table.append(tr);
+// create the head of the table
+let propName=Object.getOwnPropertyNames(students[0]);
+for(let i=0;i<propName.length;i++){
+    const th=document.createElement('th');
+    th.innerText=propName[i];
+    tr.append(th);
+}
+for(let student of students){
+    const tr2=document.createElement('tr');
+    // check if the property of the object and add the class according to the value 
     for(let i=0;i<propName.length;i++){
-        document.write('<th>' + propName[i] + '</th>' );
-    }
-    for(let student of students){
-        document.write('<tr>');
-        for(let i=0;i<propName.length;i++){
-            if(propName[i]==='totalTime'){
-                if(student[propName[i]]>7){
-                    document.write('<td class=longTime> '+student[propName[i]] + '</td>');
-                    continue;
+        const td=document.createElement('td');
+        if(propName[i]==='totalTime'){
+            if(student[propName[i]]>7){
+                td.innerText=student[propName[i]];
+                td.classList.add('longTime');
+            }
+            else{
+                if(student[propName[i]]>4){
+                    td.innerText=student[propName[i]];
+                    td.classList.add('midTime');
                 }
                 else{
-                    if(student[propName[i]]>4){
-                        document.write('<td class=midTime> '+student[propName[i]] + '</td>');
-                        continue;
-                    }
-                    else{
-                        document.write('<td class=littleTime> '+student[propName[i]] + '</td>');
-                        continue;
-                    }
+                    td.innerText=student[propName[i]];
+                    td.classList.add('littleTime');
                 }
             }
-            if(propName[i] ==='tasksFinishedPercents'){
-                if(student[propName[i]]>=80){
-                    document.write('<td class=highPercent> '+student[propName[i]] + '% </td>');
-                    continue;
-                }
-                else{
-                    if(student[propName[i]]>55){
-                        document.write('<td class=midPercent> '+student[propName[i]] + '% </td>');
-                        continue;
-                    }
-                    else{
-                        document.write('<td class=lowPercent> '+student[propName[i]] + '% </td>');
-                        continue;
-                    }
-                }
-            }
-            document.write('<td> '+student[propName[i]] + '</td>');
         }
-        document.write('</tr>');
+        if(propName[i] ==='tasksFinishedPercents'){
+            if(student[propName[i]]>=80){
+                td.innerText=student[propName[i]];
+                td.classList.add('highPercent');
+            }
+            else{
+                if(student[propName[i]]>55){
+                    td.innerText=student[propName[i]];
+                    td.classList.add('midPercent');
+                }
+                else{
+                    td.innerText=student[propName[i]];
+                    td.classList.add('lowPercent');
+                }
+            }
+        }
+        
+        td.innerText=student[propName[i]];
+        tr2.append(td);
+        table.append(tr2);
     }
+}
 
-document.write('</table>');
